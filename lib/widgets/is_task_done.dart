@@ -13,7 +13,7 @@ class ToDo {
       ToDo(id: '01', todoText: "test text 3", isDone: true),
       ToDo(id: '02', todoText: "test text 4", isDone: false),
       ToDo(id: '03', todoText: "test text 5", isDone: true),
-      ToDo(id: '04', todoText: "test text 6", isDone: true),
+      ToDo(id: '04', todoText: "test text 6", isDone: false),
     ];
   }
 }

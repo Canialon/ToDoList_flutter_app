@@ -3,18 +3,23 @@
 import 'package:flutter/material.dart';
 import '../constants/colors.dart';
 import 'is_task_done.dart';
+import '../screens/home.dart';
 
 class ToDoElement extends StatelessWidget {
   final ToDo todo;
+  final onToDoChanged;
 
-  const ToDoElement({Key? key, required this.todo}) : super(key: key);
+  const ToDoElement({Key? key, required this.todo, required this.onToDoChanged})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(bottom: 20),
       child: ListTile(
-          onTap: () {},
+          onTap: () {
+            onToDoChanged(todo);
+          },
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
