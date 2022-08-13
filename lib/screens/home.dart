@@ -47,27 +47,50 @@ class Home extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                      child: Container(
-                    margin: EdgeInsets.only(
-                      bottom: 20,
-                      right: 20,
-                      left: 20,
-                    ),
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 3,
-                    ),
-                    decoration: BoxDecoration(
-                      color: ListColor,
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Add new task',
-                        border: InputBorder.none,
+                    child: Container(
+                      margin: EdgeInsets.only(
+                        bottom: 20,
+                        right: 10,
+                        left: 20,
+                      ),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 3,
+                      ),
+                      decoration: BoxDecoration(
+                        color: ListColor,
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: 'Add new task',
+                          border: InputBorder.none,
+                        ),
                       ),
                     ),
-                  ))
+                  ),
+
+                  //plus button
+                  Container(
+                    margin: EdgeInsets.only(
+                      bottom: 20,
+                      right: 10,
+                    ),
+                    child: ElevatedButton(
+                      child: Text(
+                        '+',
+                        style: TextStyle(fontSize: 40),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                          shape: new RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(35),
+                          ),
+                          primary: CheckBoxColor,
+                          minimumSize: Size(50, 50),
+                          elevation: 0),
+                      onPressed: () {},
+                    ),
+                  )
                 ],
               ))
         ],
