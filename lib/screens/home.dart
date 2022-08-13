@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:to_do_list_app/constants/colors.dart';
+import '../constants/colors.dart';
+import '../widgets/todo_element.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -7,9 +8,22 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: BgColor, title: Text('To Do App')),
+      backgroundColor: BgColor,
+      appBar: AppBar(
+        backgroundColor: BgColor,
+        title: Text('To Do App'),
+        elevation: 0,
+      ),
       body: Container(
-        child: Text('hi there!'),
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView(
+                children: [ToDoElement()],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
