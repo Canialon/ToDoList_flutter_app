@@ -64,6 +64,7 @@ class Home extends StatelessWidget {
                     child: TextField(
                       decoration: InputDecoration(
                         hintText: 'Add new task',
+                        border: InputBorder.none,
                       ),
                     ),
                   ))
