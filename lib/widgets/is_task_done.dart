@@ -9,7 +9,7 @@ class ToDo {
 
   static List<ToDo> todoList() {
     return [
-      ToDo(id: '00', todoText: "test text 2", isDone: false),
+      ToDo(id: '00', todoText: "It is default task", isDone: false),
     ];
   }
 }
