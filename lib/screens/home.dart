@@ -13,6 +13,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final todoList = ToDo.todoList();
+  final _todoController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -71,6 +72,7 @@ class _HomeState extends State<Home> {
                         borderRadius: BorderRadius.circular(15),
                       ),
                       child: TextField(
+                        controller: _todoController,
                         decoration: InputDecoration(
                           hintText: 'Add new task',
                           border: InputBorder.none,
@@ -97,7 +99,9 @@ class _HomeState extends State<Home> {
                           primary: CheckBoxColor,
                           minimumSize: Size(50, 50),
                           elevation: 0),
-                      onPressed: () {},
+                      onPressed: () {
+                        _addToDoElement(_todoController.text);
+                      },
                     ),
                   )
                 ],
@@ -107,9 +111,18 @@ class _HomeState extends State<Home> {
     );
   }
 
+// function to change te state of chackbox
   void _handleToDoChange(ToDo todo) {
     setState(() {
       todo.isDone = !todo.isDone;
     });
+  }
+
+// function to make imput field work
+  void _addToDoElement(String toDo) {
+    setState(() {
+      todoList.add(ToDo(id: DateTime.now().toString(), todoText: toDo));
+    });
+    _todoController.clear();
   }
 }
