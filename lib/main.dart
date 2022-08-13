@@ -13,9 +13,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'ToDo List',
-      theme: ThemeData(
-        primarySwatch: Colors.yellow,
-      ),
       home: const Home(),
     );
   }
