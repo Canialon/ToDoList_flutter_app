@@ -38,19 +38,13 @@ class _HomeState extends State<Home> {
           Container(
               padding: EdgeInsets.symmetric(
                   horizontal: 20, vertical: 35), //paddings of all page
-              child: Column(
+              child: ListView(
                 children: [
-                  Expanded(
-                    child: ListView(
-                      children: [
-                        for (ToDoTasksList todoo in todoList) // our list
-                          ToDoElement(
-                            todo: todoo,
-                            onToDoChanged: _handleToDoChange,
-                          ),
-                      ],
+                  for (ToDoTasksList todoo in todoList) // our list
+                    ToDoElement(
+                      todo: todoo,
+                      onToDoChanged: _handleToDoChange,
                     ),
-                  ),
                 ],
               )),
 
