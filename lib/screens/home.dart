@@ -12,8 +12,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final todoList = ToDo.todoList();
+  final todoList = ToDoTasksList.todoList();
   final _todoController = TextEditingController();
+  final items = List<String>.generate(20, (i) => 'Item ${i + 1}');
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +41,7 @@ class _HomeState extends State<Home> {
                   Expanded(
                     child: ListView(
                       children: [
-                        for (ToDo todoo in todoList)
+                        for (ToDoTasksList todoo in todoList) // our list
                           ToDoElement(
                             todo: todoo,
                             onToDoChanged: _handleToDoChange,
@@ -112,7 +113,7 @@ class _HomeState extends State<Home> {
   }
 
 // function to change te state of chackbox
-  void _handleToDoChange(ToDo todo) {
+  void _handleToDoChange(ToDoTasksList todo) {
     setState(() {
       todo.isDone = !todo.isDone;
     });
@@ -121,7 +122,8 @@ class _HomeState extends State<Home> {
 // function to make imput field work
   void _addToDoElement(String toDo) {
     setState(() {
-      todoList.add(ToDo(id: DateTime.now().toString(), todoText: toDo));
+      todoList
+          .add(ToDoTasksList(id: DateTime.now().toString(), todoText: toDo));
     });
     _todoController.clear();
   }

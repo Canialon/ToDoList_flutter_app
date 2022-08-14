@@ -6,7 +6,7 @@ import 'is_task_done.dart';
 import '../screens/home.dart';
 
 class ToDoElement extends StatelessWidget {
-  final ToDo todo;
+  final ToDoTasksList todo;
   final onToDoChanged;
 
   const ToDoElement({Key? key, required this.todo, required this.onToDoChanged})
