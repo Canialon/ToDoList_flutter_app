@@ -1,12 +1,14 @@
 // it is constant of every todo list item
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
 import '../constants/colors.dart';
 import 'is_task_done.dart';
-import '../screens/home.dart';
 
 class ToDoElement extends StatelessWidget {
   final ToDoTasksList todo;
+  // ignore: prefer_typing_uninitialized_variables
   final onToDoChanged;
 
   const ToDoElement({Key? key, required this.todo, required this.onToDoChanged})
@@ -15,7 +17,7 @@ class ToDoElement extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 20),
+      margin: const EdgeInsets.only(bottom: 20),
       child: ListTile(
           onTap: () {
             onToDoChanged(todo);
@@ -38,5 +40,11 @@ class ToDoElement extends StatelessWidget {
             ),
           )),
     );
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('onToDoChanged', onToDoChanged));
   }
 }

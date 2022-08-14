@@ -11,10 +11,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    // ignore: prefer_const_constructors
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'ToDo List',
-      home: Home(),
+      home: const Home(),
     );
   }
 }

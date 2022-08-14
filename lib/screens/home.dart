@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:uuid/uuid.dart';
 
 import '../constants/colors.dart';
-import '../widgets/todo_element.dart';
 import '../widgets/is_task_done.dart';
+import '../widgets/todo_element.dart';
 
 class Home extends StatefulWidget {
-  Home({Key? key}) : super(key: key);
+  const Home({Key? key}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
@@ -26,7 +25,7 @@ class _HomeState extends State<Home> {
       //it is header
       appBar: AppBar(
         backgroundColor: BgColor,
-        title: Text(
+        title: const Text(
           'To Do App',
           style: TextStyle(color: TextColor),
         ),
@@ -36,7 +35,7 @@ class _HomeState extends State<Home> {
       body: Stack(
         children: [
           Container(
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                   horizontal: 20, vertical: 35), //paddings of all page
               child: ListView(
                 children: [
@@ -55,12 +54,12 @@ class _HomeState extends State<Home> {
                 children: [
                   Expanded(
                     child: Container(
-                      margin: EdgeInsets.only(
+                      margin: const EdgeInsets.only(
                         bottom: 20,
                         right: 10,
                         left: 20,
                       ),
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                         horizontal: 20,
                         vertical: 3,
                       ),
@@ -70,7 +69,7 @@ class _HomeState extends State<Home> {
                       ),
                       child: TextField(
                         controller: _todoController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           hintText: 'Add new task',
                           border: InputBorder.none,
                         ),
@@ -80,21 +79,21 @@ class _HomeState extends State<Home> {
 
                   //plus button
                   Container(
-                    margin: EdgeInsets.only(
+                    margin: const EdgeInsets.only(
                       bottom: 20,
                       right: 10,
                     ),
                     child: ElevatedButton(
-                      child: Text(
+                      child: const Text(
                         '+',
                         style: TextStyle(fontSize: 40),
                       ),
                       style: ElevatedButton.styleFrom(
-                          shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(35),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(35),
                           ),
                           primary: CheckBoxColor,
-                          minimumSize: Size(50, 50),
+                          minimumSize: const Size(50, 50),
                           elevation: 0),
                       onPressed: () {
                         _addToDoElement(_todoController.text);
@@ -118,7 +117,7 @@ class _HomeState extends State<Home> {
 // function to make imput field work
   void _addToDoElement(String toDo) {
     setState(() {
-      todoList.add(ToDoTasksList(id: Uuid().toString(), todoText: toDo));
+      todoList.add(ToDoTasksList(id: const Uuid().toString(), todoText: toDo));
     });
     _todoController.clear();
   }
