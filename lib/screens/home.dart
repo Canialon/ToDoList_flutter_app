@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:uuid/uuid.dart';
 
 import '../constants/colors.dart';
 import '../widgets/todo_element.dart';
@@ -122,8 +124,7 @@ class _HomeState extends State<Home> {
 // function to make imput field work
   void _addToDoElement(String toDo) {
     setState(() {
-      todoList
-          .add(ToDoTasksList(id: DateTime.now().toString(), todoText: toDo));
+      todoList.add(ToDoTasksList(id: Uuid().toString(), todoText: toDo));
     });
     _todoController.clear();
   }
